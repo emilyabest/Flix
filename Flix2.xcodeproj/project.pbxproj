@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		B13AF45722C3EEA800AEACA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B13AF45622C3EEA800AEACA4 /* main.m */; };
 		B13AF46122C3EEA800AEACA4 /* Flix2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B13AF46022C3EEA800AEACA4 /* Flix2Tests.m */; };
 		B13AF46C22C3EEA800AEACA4 /* Flix2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B13AF46B22C3EEA800AEACA4 /* Flix2UITests.m */; };
+		B18F627B22C56B2500F50785 /* DetailsViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = B18F627A22C56B2500F50785 /* DetailsViewController2.m */; };
 		B1A6478F22C401FE00C022B1 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6478E22C401FE00C022B1 /* MoviesViewController.m */; };
 		B1A6479322C427FB00C022B1 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6479222C427FB00C022B1 /* MovieCell.m */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,8 @@
 		B13AF46722C3EEA800AEACA4 /* Flix2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Flix2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13AF46B22C3EEA800AEACA4 /* Flix2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flix2UITests.m; sourceTree = "<group>"; };
 		B13AF46D22C3EEA800AEACA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B18F627922C56B2500F50785 /* DetailsViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController2.h; sourceTree = "<group>"; };
+		B18F627A22C56B2500F50785 /* DetailsViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController2.m; sourceTree = "<group>"; };
 		B1A6478D22C401FE00C022B1 /* MoviesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
 		B1A6478E22C401FE00C022B1 /* MoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		B1A6479122C427FB00C022B1 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
@@ -106,7 +109,6 @@
 				B0E449D32C7FD6AAEC25EB6F /* Pods-Flix2UITests.debug.xcconfig */,
 				3DEA646511A84AF11BDCEAC8 /* Pods-Flix2UITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -170,6 +172,8 @@
 		B1A6479022C402D100C022B1 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B18F627922C56B2500F50785 /* DetailsViewController2.h */,
+				B18F627A22C56B2500F50785 /* DetailsViewController2.m */,
 				B1A6478D22C401FE00C022B1 /* MoviesViewController.h */,
 				B1A6478E22C401FE00C022B1 /* MoviesViewController.m */,
 			);
@@ -406,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18F627B22C56B2500F50785 /* DetailsViewController2.m in Sources */,
 				B13AF45722C3EEA800AEACA4 /* main.m in Sources */,
 				B13AF44922C3EEA800AEACA4 /* AppDelegate.m in Sources */,
 				B1A6479322C427FB00C022B1 /* MovieCell.m in Sources */,
@@ -582,6 +587,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B9A2QRD9WC;
 				INFOPLIST_FILE = Flix2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -599,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B9A2QRD9WC;
 				INFOPLIST_FILE = Flix2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
