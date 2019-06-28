@@ -25,13 +25,16 @@
 
 @implementation MoviesViewController
 
+/**
+ Loads the view.
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    // Fill the movies
     [self fetchMovies];
     
     // Refresh the list
@@ -49,6 +52,7 @@
     // this to yes if using another controller to display the search results.
     self.searchController.dimsBackgroundDuringPresentation = NO;
     
+    // Make search bar visible on the top of the screen
     [self.searchController.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.searchController.searchBar;
     
@@ -56,27 +60,31 @@
     self.definesPresentationContext = YES;
 }
 
-// Gets list of movies
+/**
+ Gets a list of movies.
+ */
 - (void)fetchMovies {
     // Start the activity indicator (appears when first opening app)
     [self.activityIndicator startAnimating];
     
+    // Access the website
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        // If movies can't be loaded
+        
+        // If movies can't be loaded, print error message
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
             
             // Display network signal error (1-3)
-            // 1 Create the UIAlertController
+            // 1. Create the UIAlertController
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Internet" message:@"Please connect to the internet." preferredStyle:UIAlertControllerStyleAlert];
             
-            // 2 Add buttons
+            // 2. Add buttons
             // Create a cancel action
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                // handle cancel response here. Doing nothing will dismiss the view.
+                // Handle cancel response here. Doing nothing will dismiss the view.
             }];
             // Add the cancel action to the alertController
             [alert addAction:cancelAction];
@@ -93,25 +101,19 @@
             }];
         }
         else {
+            // Fill movies array with data from dictionary
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            NSLog(@"%@", dataDictionary);
-            
             self.movies = dataDictionary[@"results"];
             self.filteredData = self.movies;
-            for (NSDictionary *movie in self.movies) {
-                NSLog(@"%@", movie[@"title"]);
-            }
             
+            // Reload table view
             [self.tableView reloadData];
-            // TODO: Get the array of movies
-            // TODO: Store the movies in a property to use elsewhere
-            // TODO: Reload your table view data
         }
+        
+        // Stop refresh
         [self.refreshControl endRefreshing];
         
-        // Stop the activity indicator
-        // Hides automatically if "Hides When Stopped" is enabled
+        // Stop the activity indicator, hides automatically if "Hides When Stopped" is enabled
         [self.activityIndicator stopAnimating];
         
     }];
@@ -125,29 +127,33 @@
 
 
 #pragma mark - Navigation
-// Passes info of tapped movie to DetailsViewController
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+/**
+ Passes info of tapped movie to DetailsViewController
+ In a storyboard-based application, you will often want to do a little preparation before navigation
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
+    // Access tapped movie cell
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-    NSDictionary *movie = self.movies[indexPath.row];
+    NSDictionary *movie = self.filteredData[indexPath.row];
     
+    // Pass selected movie to the new view controller
     DetailsViewController2 *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
 }
 
-
-// Table contains the number of movies in API
+/**
+ Table contains the number of movies in the search results
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.filteredData.count;
 }
 
-// Filling table
+/**
+ Fill table view
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    // Access next cell
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
     // Fill movie titles and synposes
@@ -166,22 +172,24 @@
     return cell;
 }
 
-/*
+/**
  Updates search results as it finds the movies
  */
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    
+    // Identify if the user is searching
     NSString *searchText = searchController.searchBar.text;
     if (searchText) {
-        
+        // User has entered text, find titles that contain their search query
         if (searchText.length != 0) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title beginswith[cd] %@", searchText];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", searchText];
             self.filteredData = [self.movies filteredArrayUsingPredicate:predicate];
         }
+        // User has not entered any text
         else {
             self.filteredData = self.movies;
         }
     }
+    // Reload the data
     [self.tableView reloadData];
 }
 

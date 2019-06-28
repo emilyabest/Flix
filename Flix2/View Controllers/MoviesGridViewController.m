@@ -22,9 +22,11 @@
 
 @implementation MoviesGridViewController
 
+/**
+ Loads the view.
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -33,61 +35,60 @@
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     
-    // To change the line spacing between posters
-//    layout.minimumInteritemSpacing = 5;
-//    layout.minimumLineSpacing = 5;
-//    CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine - 1)) / postersPerLine;
+    /*
+     To change the line spacing between posters:
+     layout.minimumInteritemSpacing = 5;
+     layout.minimumLineSpacing = 5;
+     CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine - 1)) / postersPerLine;
+     */
     
+    // Set up layout
     CGFloat postersPerLine = 2;
     CGFloat itemWidth = self.collectionView.frame.size.width / postersPerLine;
     CGFloat itemHeight = itemWidth * 1.5;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
 }
 
-// Gets list of movies
+/**
+ Gets a list of movies.
+ */
 - (void)fetchMovies {
     // Start the activity indicator (appears when first opening app)
     [self.activityIndicator startAnimating];
     
+    // Access the website
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        // If movies can't be loaded, print error message
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
         }
+        
+        // Display network signal error (1-3)
+        // 1. Create the UIAlertController
         else {
+            // Fill movies array with data from dictionary
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            NSLog(@"%@", dataDictionary);
-            
             self.movies = dataDictionary[@"results"];
-            for (NSDictionary *movie in self.movies) {
-                NSLog(@"%@", movie[@"title"]);
-            }
             
+            // Reload table view
             [self.collectionView reloadData];
         }
         
-        // Stop the activity indicator
-        // Hides automatically if "Hides When Stopped" is enabled
+        // Stop the activity indicator, hides automatically if "Hides When Stopped" is enabled
         [self.activityIndicator stopAnimating];
     }];
     [task resume];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-// Returns the cell
+/**
+ Returns the cell
+ */
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    // Access next cell
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
     // Fill movie posters
@@ -102,7 +103,9 @@
     return cell;
 }
 
-// Returns the number of cells
+/**
+ Returns the number of cells
+ */
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.movies.count;
 }

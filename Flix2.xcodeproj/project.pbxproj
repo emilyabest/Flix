@@ -17,7 +17,6 @@
 		B13AF45722C3EEA800AEACA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B13AF45622C3EEA800AEACA4 /* main.m */; };
 		B13AF46122C3EEA800AEACA4 /* Flix2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B13AF46022C3EEA800AEACA4 /* Flix2Tests.m */; };
 		B13AF46C22C3EEA800AEACA4 /* Flix2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B13AF46B22C3EEA800AEACA4 /* Flix2UITests.m */; };
-		B1535A4422C6A6A200740A4D /* UISearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1535A4322C6A6A200740A4D /* UISearchViewController.m */; };
 		B18F627B22C56B2500F50785 /* DetailsViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = B18F627A22C56B2500F50785 /* DetailsViewController2.m */; };
 		B18F628122C57AD000F50785 /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18F628022C57AD000F50785 /* MoviesGridViewController.m */; };
 		B18F628422C57DED00F50785 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B18F628322C57DED00F50785 /* MovieCollectionCell.m */; };
@@ -65,8 +64,6 @@
 		B13AF46722C3EEA800AEACA4 /* Flix2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Flix2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13AF46B22C3EEA800AEACA4 /* Flix2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flix2UITests.m; sourceTree = "<group>"; };
 		B13AF46D22C3EEA800AEACA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1535A4222C6A6A200740A4D /* UISearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UISearchViewController.h; sourceTree = "<group>"; };
-		B1535A4322C6A6A200740A4D /* UISearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UISearchViewController.m; sourceTree = "<group>"; };
 		B18F627922C56B2500F50785 /* DetailsViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController2.h; sourceTree = "<group>"; };
 		B18F627A22C56B2500F50785 /* DetailsViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController2.m; sourceTree = "<group>"; };
 		B18F627F22C57AD000F50785 /* MoviesGridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesGridViewController.h; sourceTree = "<group>"; };
@@ -197,8 +194,6 @@
 				B1A6478E22C401FE00C022B1 /* MoviesViewController.m */,
 				B18F627F22C57AD000F50785 /* MoviesGridViewController.h */,
 				B18F628022C57AD000F50785 /* MoviesGridViewController.m */,
-				B1535A4222C6A6A200740A4D /* UISearchViewController.h */,
-				B1535A4322C6A6A200740A4D /* UISearchViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -439,7 +434,6 @@
 				B18F628422C57DED00F50785 /* MovieCollectionCell.m in Sources */,
 				B1A6479322C427FB00C022B1 /* MovieCell.m in Sources */,
 				B1A6478F22C401FE00C022B1 /* MoviesViewController.m in Sources */,
-				B1535A4422C6A6A200740A4D /* UISearchViewController.m in Sources */,
 				B18F628122C57AD000F50785 /* MoviesGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
