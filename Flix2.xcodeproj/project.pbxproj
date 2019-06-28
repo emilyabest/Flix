@@ -18,6 +18,8 @@
 		B13AF46122C3EEA800AEACA4 /* Flix2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B13AF46022C3EEA800AEACA4 /* Flix2Tests.m */; };
 		B13AF46C22C3EEA800AEACA4 /* Flix2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B13AF46B22C3EEA800AEACA4 /* Flix2UITests.m */; };
 		B18F627B22C56B2500F50785 /* DetailsViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = B18F627A22C56B2500F50785 /* DetailsViewController2.m */; };
+		B18F628122C57AD000F50785 /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18F628022C57AD000F50785 /* MoviesGridViewController.m */; };
+		B18F628422C57DED00F50785 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B18F628322C57DED00F50785 /* MovieCollectionCell.m */; };
 		B1A6478F22C401FE00C022B1 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6478E22C401FE00C022B1 /* MoviesViewController.m */; };
 		B1A6479322C427FB00C022B1 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6479222C427FB00C022B1 /* MovieCell.m */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,10 @@
 		B13AF46D22C3EEA800AEACA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B18F627922C56B2500F50785 /* DetailsViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController2.h; sourceTree = "<group>"; };
 		B18F627A22C56B2500F50785 /* DetailsViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController2.m; sourceTree = "<group>"; };
+		B18F627F22C57AD000F50785 /* MoviesGridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesGridViewController.h; sourceTree = "<group>"; };
+		B18F628022C57AD000F50785 /* MoviesGridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesGridViewController.m; sourceTree = "<group>"; };
+		B18F628222C57DED00F50785 /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
+		B18F628322C57DED00F50785 /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
 		B1A6478D22C401FE00C022B1 /* MoviesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
 		B1A6478E22C401FE00C022B1 /* MoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		B1A6479122C427FB00C022B1 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 		B13AF44622C3EEA800AEACA4 /* Flix2 */ = {
 			isa = PBXGroup;
 			children = (
+				B18F628522C57E2000F50785 /* Views */,
 				B1A6479022C402D100C022B1 /* View Controllers */,
 				B13AF44722C3EEA800AEACA4 /* AppDelegate.h */,
 				B13AF44822C3EEA800AEACA4 /* AppDelegate.m */,
@@ -145,8 +152,6 @@
 				B13AF45222C3EEA800AEACA4 /* LaunchScreen.storyboard */,
 				B13AF45522C3EEA800AEACA4 /* Info.plist */,
 				B13AF45622C3EEA800AEACA4 /* main.m */,
-				B1A6479122C427FB00C022B1 /* MovieCell.h */,
-				B1A6479222C427FB00C022B1 /* MovieCell.m */,
 			);
 			path = Flix2;
 			sourceTree = "<group>";
@@ -169,6 +174,17 @@
 			path = Flix2UITests;
 			sourceTree = "<group>";
 		};
+		B18F628522C57E2000F50785 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1A6479122C427FB00C022B1 /* MovieCell.h */,
+				B1A6479222C427FB00C022B1 /* MovieCell.m */,
+				B18F628222C57DED00F50785 /* MovieCollectionCell.h */,
+				B18F628322C57DED00F50785 /* MovieCollectionCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B1A6479022C402D100C022B1 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +192,8 @@
 				B18F627A22C56B2500F50785 /* DetailsViewController2.m */,
 				B1A6478D22C401FE00C022B1 /* MoviesViewController.h */,
 				B1A6478E22C401FE00C022B1 /* MoviesViewController.m */,
+				B18F627F22C57AD000F50785 /* MoviesGridViewController.h */,
+				B18F628022C57AD000F50785 /* MoviesGridViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -413,8 +431,10 @@
 				B18F627B22C56B2500F50785 /* DetailsViewController2.m in Sources */,
 				B13AF45722C3EEA800AEACA4 /* main.m in Sources */,
 				B13AF44922C3EEA800AEACA4 /* AppDelegate.m in Sources */,
+				B18F628422C57DED00F50785 /* MovieCollectionCell.m in Sources */,
 				B1A6479322C427FB00C022B1 /* MovieCell.m in Sources */,
 				B1A6478F22C401FE00C022B1 /* MoviesViewController.m in Sources */,
+				B18F628122C57AD000F50785 /* MoviesGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
