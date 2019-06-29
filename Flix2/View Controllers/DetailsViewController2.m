@@ -42,6 +42,13 @@ static NSString * const reuseIdentifier = @"Cell";
     NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString];
     [self.backdropView setImageWithURL:backdropURL];
     
+    // Apply gradient
+    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+    gradientMask.frame = self.backdropView.bounds;
+    gradientMask.colors = @[(id)[UIColor whiteColor].CGColor,
+                            (id)[UIColor clearColor].CGColor];
+    self.backdropView.layer.mask = gradientMask;
+    
     // Fill titleLabel, dateLabel, synopsisLabel
     self.titleLabel.text = self.movie[@"title"];
     self.dateLabel.text = self.movie[@"release_date"];
