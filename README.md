@@ -38,10 +38,19 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
+App icon and loading state
 <img src='http://g.recordit.co/oJ6SkO69Pb.gif' title='App icon and loading state' width='' alt='Video Walkthrough' />
+
+Scroll, pull to refresh, tap on cell for detailed view
 <img src='http://g.recordit.co/MvgPqCVHrs.gif' title='Scroll, pull to refresh, tap on cell for detailed view' width='' alt='Video Walkthrough' />
+
+Additional tab, collection view, tap poster for detailed view
 <img src='http://g.recordit.co/J8Yz07YYlK.gif' title='Additional tab, collection view, tap poster for detailed view' width='' alt='Video Walkthrough' />
+
+Search bar
 <img src='http://g.recordit.co/4nRT1IvYoV.gif' title='Search bar' width='' alt='Video Walkthrough' />
+
+Alert when no wifi
 <img src='http://g.recordit.co/JWmZLAXwrF.gif' title='Alert when no wifi' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
