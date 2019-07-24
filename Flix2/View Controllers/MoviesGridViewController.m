@@ -65,8 +65,7 @@
             NSLog(@"%@", [error localizedDescription]);
         }
         
-        // Display network signal error (1-3)
-        // 1. Create the UIAlertController
+        // Else, use movie data
         else {
             // Fill movies array with data from dictionary
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];

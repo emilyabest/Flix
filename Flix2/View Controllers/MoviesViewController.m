@@ -29,18 +29,21 @@
  Loads the view.
  */
 - (void)viewDidLoad {
+    // Initialize?
     [super viewDidLoad];
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    // Fill the movies
+    // Fill the movies initially
     [self fetchMovies];
     
-    // Refresh the list
+    // Refresh the list when user pulls down
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
+    // Set cell height
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     // Initializing with searchResultsController set to nil means that
     // searchController will use this view controller to display the search results
@@ -95,7 +98,7 @@
             // Add the OK action to the alert controller
             [alert addAction:okAction];
             
-            // 3 Show the UIAlertController
+            // 3. Show the UIAlertController
             [self presentViewController:alert animated:YES completion:^{
                 // optional code for what happens after the alert controller has finished presenting
             }];
